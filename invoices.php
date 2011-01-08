@@ -46,7 +46,7 @@ foreach ($xml->invoice as $invoice) {
         case "open":
         case "overdue":
         case "paid":
-            $results[$status] += (float) $value;
+            $results[$status] += (int) $value;
             break;
     }
 }
