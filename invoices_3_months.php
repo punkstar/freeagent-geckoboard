@@ -7,30 +7,13 @@ if (file_exists("config.php")) {
     die("Please rename config.example.php to config.php and enter your details to continue.\n");
 }
 
-if (empty($api_key)) {
-    die("Please enter an API key in config.php.\n");
-} else if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != $api_key) {
-    header("HTTP/1.1 403 Access denied");
-    die("Invalid API key\n");
-}
+include "functions.php";
 
-$url = "https://{$company}.freeagentcentral.com/invoices.xml?view=recent_open_or_overdue";
+check_api($api_key);
 
-$ch = curl_init();
+$url = "https://{$company}.freeagentcentral.com/invoices.xml?view=last_3_months";
 
-curl_setopt($ch, CURLOPT_SSLVERSION,     3);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPAUTH,       CURLAUTH_BASIC) ;
-curl_setopt($ch, CURLOPT_USERPWD,        "{$username}:{$password}");
-curl_setopt($ch, CURLOPT_URL,            $url);
-
-$data = curl_exec($ch);
-
-curl_close($ch);
-
-$xml = simplexml_load_string($data);
+$xml = perform_xml_request($url, $username, $password);
 
 $results = array(
     "open"    => 0,
@@ -68,5 +51,4 @@ $output = array(
     )
 );
 
-// print_r($output);
 echo json_encode($output);
