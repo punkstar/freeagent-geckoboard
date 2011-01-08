@@ -52,20 +52,18 @@ foreach ($xml->invoice as $invoice) {
 }
 
 $output = array(
-    "root" => array(
-        "item" => array(
-            array(
-                "value" => "Overdue",
-                "text"  => $results['overdue']
-            ),
-            array(
-                "value" => "Open",
-                "text"  => $results['open']
-            ),
-            array(
-                "value" => "Paid",
-                "text"  => $results['paid']
-            )
+    "item" => array(
+        array(
+            "value" => "Overdue",
+            "text"  => $results['overdue']
+        ),
+        array(
+            "value" => "Open",
+            "text"  => $results['open']
+        ),
+        array(
+            "value" => "Paid",
+            "text"  => $results['paid']
         )
     )
 );
