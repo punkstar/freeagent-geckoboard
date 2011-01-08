@@ -4,7 +4,14 @@ error_reporting(E_ALL);
 if (file_exists("config.php")) {
     include "config.php";
 } else {
-    die("Please rename config.example.php to config.php and enter your details to continue\n");
+    die("Please rename config.example.php to config.php and enter your details to continue.\n");
+}
+
+if (empty($api_key)) {
+    die("Please enter an API key in config.php.\n");
+} else if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != $api_key) {
+    header("HTTP/1.1 403 Access denied");
+    die("Invalid API key\n");
 }
 
 $url = "https://{$company}.freeagentcentral.com/invoices.xml?view=recent_open_or_overdue";
