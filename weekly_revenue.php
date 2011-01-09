@@ -17,10 +17,11 @@ $xml = perform_xml_request($url, $username, $password);
 
 $results = array();
 $return = array(
-    "items" => array(),
+    "item" => array(),
     "settings" => array(
         "axisx" => array(),
-        "axisy" => array()
+        "axisy" => array(),
+        "colour" => 'ff9900'
     )
 );
 
@@ -43,10 +44,13 @@ foreach ($xml->invoice as $invoice) {
 $max_average = 0;
 
 for ($i = 0; $i < 52; $i++) {
-    $current_week = (int) date("W", strtotime("-{$i} weeks"));
+    $date = strtotime("-{$i} weeks");
+    $current_week = (int) date("W", $date);
     
-    $return['settings']['axisx'][] = $current_week;
-    
+    if ($i % 12 == 0) {
+        $return['settings']['axisx'][] = date("M y", $date);
+    }
+
     if (!isset($results[$current_week])) {
         $average = 0;
     } else {
@@ -57,11 +61,15 @@ for ($i = 0; $i < 52; $i++) {
         $max_average = $average;
     }
     
-    $return['items'][] = (int) $average;
+    $return['item'][] = (int) $average;
 }
 
 $return['settings']['axisy'] = array(
-    0, $max_average
+    0,
+    number_format($max_average * 0.25),
+    number_format($max_average * 0.50),
+    number_format($max_average * 0.75),
+    number_format($max_average)
 );
 
 echo json_encode($return);
