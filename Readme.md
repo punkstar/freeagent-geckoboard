@@ -8,19 +8,15 @@ Author: Nick Jones (<http://www.nicksays.co.uk>)
 
 All configuration items for this module are held in the config.php file.  The API key specified is not used by [FreeAgent](http://fre.ag/32apsc3u), but is used in the [Geckoboard](geckoboard.com) widget configuration as a method of authentication.
 
-## Widget Types
-
-The following widgets are available, with more to come in the future.
-
-### Invoice Statistics
+## Invoice Statistics
 
 Show your Overdue, Open and Paid invoices, from the last three months, as a RAG table on your [Geckoboard](geckoboard.com).
 
-#### Widget Preview
+### Widget Preview
 
 ![Show invoice statistics on Geckoboard from FreeAgent](http://dl.dropbox.com/u/192363/github/freeagent-geckoboard/freeagent_geckoboard_example.png)
 
-#### Widget Parameters
+### Widget Parameters
 
 * **Widget:** RAG Columns and Numbers
 * **URL data feed:** {$yourwebsitename}/invoice_stats.php
@@ -28,15 +24,15 @@ Show your Overdue, Open and Paid invoices, from the last three months, as a RAG 
 * **Widget Type:** Custom
 * **Feed Format:** JSON
 
-### Weekly Revenue
+## Weekly Revenue
 
 Show your weekly invoiced totals on your [Geckoboard](geckoboard.com) as a line graph.
 
-#### Widget Preview
+### Widget Preview
 
 ![Show weekly revenue as a sparkline on Geckoboard from FreeAgent](http://dl.dropbox.com/u/192363/github/freeagent-geckoboard/freeagent_geckoboard_example_weekly_stats.png)
 
-#### Widget Parameters
+### Widget Parameters
 
 * **Widget:** Line Chart (2x1 looks cool)
 * **URL data feed:** {$yourwebsitename}/weekly_revenue.php
