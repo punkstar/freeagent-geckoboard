@@ -27,3 +27,19 @@ Show your Overdue, Open and Paid invoices, from the last three months, as a RAG 
 * **API Key:** (defined in your config.php)
 * **Widget Type:** Custom
 * **Feed Format:** JSON
+
+### Weekly Revenue
+
+Show your weekly invoiced totals on your [Geckoboard](geckoboard.com) as a line graph.
+
+#### Widget Preview
+
+![Show weekly revenue as a sparkline on Geckoboard from FreeAgent](http://dl.dropbox.com/u/192363/github/freeagent-geckoboard/freeagent_geckoboard_example_weekly_stats.png)
+
+#### Widget Parameters
+
+* **Widget:** Line Chart (2x1 looks cool)
+* **URL data feed:** {$yourwebsitename}/weekly_revenue.php
+* **API Key:** (defined in your config.php)
+* **Widget Type:** Custom
+* **Feed Format:** JSON
