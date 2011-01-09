@@ -29,7 +29,7 @@ foreach ($xml->invoice as $invoice) {
         case "open":
         case "overdue":
         case "paid":
-            $results[$status] += (float) $value;
+            $results[$status] += (int) $value;
             break;
     }
 }
@@ -37,16 +37,16 @@ foreach ($xml->invoice as $invoice) {
 $output = array(
     "item" => array(
         array(
-            "value" => "Overdue",
-            "text"  => $results['overdue']
+            "text" => "Overdue",
+            "value"  => $results['overdue']
         ),
         array(
-            "value" => "Open",
-            "text"  => $results['open']
+            "text" => "Open",
+            "value"  => $results['open']
         ),
         array(
-            "value" => "Paid",
-            "text"  => $results['paid']
+            "text" => "Paid",
+            "value"  => $results['paid']
         )
     )
 );
