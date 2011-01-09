@@ -6,7 +6,7 @@ Author: Nick Jones (<http://www.nicksays.co.uk>)
 
 # Configuration
 
-All configuration items for this module are held in the config.php file.  The API key specified is not used by [FreeAgent](http://fre.ag/32apsc3u), but is used in the [Geckoboard](geckoboard.com) widget configuration as a method of authentication.
+All configuration items for this module are held in the config.php file.  **Note:** The API key specified is not used by [FreeAgent](http://fre.ag/32apsc3u), but is used in the [Geckoboard](geckoboard.com) widget configuration as a method of authentication.  It's just a random string, secret to only Geckoboard and your configuration file.
 
 ## Invoice Statistics
 
