@@ -20,8 +20,8 @@ Show your Overdue, Open and Paid invoices as a RAG (Red, Amber and Green) table 
 
 #### Widget Parameters
 
-**Widget:** RAG Columns and Numbers
-**URL data feed:** {$yourwebsitename}/invoice_stats.php
-**API Key:** (defined in your config.php)
-**Widget Type:** Custom
-**Feed Format:** JSON
+* **Widget:** RAG Columns and Numbers
+* **URL data feed:** {$yourwebsitename}/invoice_stats.php
+* **API Key:** (defined in your config.php)
+* **Widget Type:** Custom
+* **Feed Format:** JSON
